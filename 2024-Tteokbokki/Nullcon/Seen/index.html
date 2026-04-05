@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>flag checker</title>
+<style>
+body{font:16px system-ui;margin:32px}
+input{width:min(520px,90vw);padding:10px;font-size:16px}
+pre{margin-top:14px}
+</style>
+
+<input id=f autofocus placeholder="enter flag">
+<pre id=o></pre>
+
+<script>
+f.oninput=_=>o.textContent=(()=>{
+  const s="︍︃︁️︇︁︋︂︌︅︀︀︁︄︀︆︇︃︋︅︄︂︎︈︆︌︅︅︁︆︍︎︎︉︌︃︂︄︌︇️︅️︈︂︎︍︉︋︋︁︍︂︋︇︍︋︄︆︀︀︄︎︎︇︀︋︍︍︍︈︇︌︈︅︁︍︉︆︍️︅︁︀︉︂︀︈️︄︆︆︎︍︁︇︉︎︁︋️︇︆︎️︌︀︄︀︂️︌︆︎️︅︇︈︈︇︁︎︈︌︀︊️︅︇︃︈︍︀︎︈︄︇︀︉︌︇︈︍︀";
+  const vs=0xFE00;
+  let t=[];
+  for(let i=0;i<s.length;i+=2){
+    t.push(((s.charCodeAt(i)-vs)<<4)|(s.charCodeAt(i+1)-vs));
+  }
+  const u=new TextEncoder().encode(f.value);
+  if(u.length*2!==t.length) return "wrong";
+  let gen=0x10231048;
+  for(let i=0;i<u.length;i++){
+    gen=((gen^0xA7012948^u[i])+131203)&0xffffffff;
+    if(t[u.length+i]!==(gen%256+256)%256) return "wrong";
+  }
+  return "correct";
+})()
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"65c7bfaeca02471f96c760a7563db6cc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
