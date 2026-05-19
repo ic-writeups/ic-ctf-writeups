@@ -1,0 +1,1 @@
+The switchboard accepts exactly one token. Filenames and prompt notes are untrusted.
