@@ -1,0 +1,112 @@
+0000000000001080 <.text>:
+    1080:	f3 0f 1e fa          	endbr64
+    1084:	53                   	push   %rbx
+    1085:	83 ff 02             	cmp    $0x2,%edi
+    1088:	0f 85 7e 00 00 00    	jne    110c <strlen@plt+0x9c>
+    108e:	48 8b 5e 08          	mov    0x8(%rsi),%rbx
+    1092:	48 89 df             	mov    %rbx,%rdi
+    1095:	e8 d6 ff ff ff       	call   1070 <strlen@plt>
+    109a:	83 f8 30             	cmp    $0x30,%eax
+    109d:	75 5f                	jne    10fe <strlen@plt+0x8e>
+    109f:	48 8d 3d 5f 10 00 00 	lea    0x105f(%rip),%rdi        # 2105 <strlen@plt+0x1095>
+    10a6:	b9 1f 00 00 00       	mov    $0x1f,%ecx
+    10ab:	31 d2                	xor    %edx,%edx
+    10ad:	4c 8d 05 cc 0f 00 00 	lea    0xfcc(%rip),%r8        # 2080 <strlen@plt+0x1010>
+    10b4:	48 8d b7 00 01 00 00 	lea    0x100(%rdi),%rsi
+    10bb:	eb 10                	jmp    10cd <strlen@plt+0x5d>
+    10bd:	0f 1f 00             	nopl   (%rax)
+    10c0:	48 83 c2 01          	add    $0x1,%rdx
+    10c4:	83 c1 11             	add    $0x11,%ecx
+    10c7:	48 83 fa 30          	cmp    $0x30,%rdx
+    10cb:	74 59                	je     1126 <strlen@plt+0xb6>
+    10cd:	48 89 d0             	mov    %rdx,%rax
+    10d0:	44 0f b6 0c 16       	movzbl (%rsi,%rdx,1),%r9d
+    10d5:	83 e0 1f             	and    $0x1f,%eax
+    10d8:	41 0f b6 04 00       	movzbl (%r8,%rax,1),%eax
+    10dd:	32 04 13             	xor    (%rbx,%rdx,1),%al
+    10e0:	01 c8                	add    %ecx,%eax
+    10e2:	0f b6 c0             	movzbl %al,%eax
+    10e5:	44 38 0c 07          	cmp    %r9b,(%rdi,%rax,1)
+    10e9:	74 d5                	je     10c0 <strlen@plt+0x50>
+    10eb:	48 8d 3d 6c 0f 00 00 	lea    0xf6c(%rip),%rdi        # 205e <strlen@plt+0xfee>
+    10f2:	e8 69 ff ff ff       	call   1060 <puts@plt>
+    10f7:	b8 01 00 00 00       	mov    $0x1,%eax
+    10fc:	5b                   	pop    %rbx
+    10fd:	c3                   	ret
+    10fe:	48 8d 3d 4e 0f 00 00 	lea    0xf4e(%rip),%rdi        # 2053 <strlen@plt+0xfe3>
+    1105:	e8 56 ff ff ff       	call   1060 <puts@plt>
+    110a:	eb eb                	jmp    10f7 <strlen@plt+0x87>
+    110c:	48 8d 3d f5 0e 00 00 	lea    0xef5(%rip),%rdi        # 2008 <strlen@plt+0xf98>
+    1113:	e8 48 ff ff ff       	call   1060 <puts@plt>
+    1118:	48 8d 3d 09 0f 00 00 	lea    0xf09(%rip),%rdi        # 2028 <strlen@plt+0xfb8>
+    111f:	e8 3c ff ff ff       	call   1060 <puts@plt>
+    1124:	eb d1                	jmp    10f7 <strlen@plt+0x87>
+    1126:	48 8d 3d 38 0f 00 00 	lea    0xf38(%rip),%rdi        # 2065 <strlen@plt+0xff5>
+    112d:	e8 2e ff ff ff       	call   1060 <puts@plt>
+    1132:	31 c0                	xor    %eax,%eax
+    1134:	5b                   	pop    %rbx
+    1135:	c3                   	ret
+    1136:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    113d:	00 00 00 
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	31 ed                	xor    %ebp,%ebp
+    1146:	49 89 d1             	mov    %rdx,%r9
+    1149:	5e                   	pop    %rsi
+    114a:	48 89 e2             	mov    %rsp,%rdx
+    114d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    1151:	50                   	push   %rax
+    1152:	54                   	push   %rsp
+    1153:	45 31 c0             	xor    %r8d,%r8d
+    1156:	31 c9                	xor    %ecx,%ecx
+    1158:	48 8d 3d 21 ff ff ff 	lea    -0xdf(%rip),%rdi        # 1080 <strlen@plt+0x10>
+    115f:	ff 15 73 2e 00 00    	call   *0x2e73(%rip)        # 3fd8 <strlen@plt+0x2f68>
+    1165:	f4                   	hlt
+    1166:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    116d:	00 00 00 
+    1170:	48 8d 3d 99 2e 00 00 	lea    0x2e99(%rip),%rdi        # 4010 <strlen@plt+0x2fa0>
+    1177:	48 8d 05 92 2e 00 00 	lea    0x2e92(%rip),%rax        # 4010 <strlen@plt+0x2fa0>
+    117e:	48 39 f8             	cmp    %rdi,%rax
+    1181:	74 15                	je     1198 <strlen@plt+0x128>
+    1183:	48 8b 05 56 2e 00 00 	mov    0x2e56(%rip),%rax        # 3fe0 <strlen@plt+0x2f70>
+    118a:	48 85 c0             	test   %rax,%rax
+    118d:	74 09                	je     1198 <strlen@plt+0x128>
+    118f:	ff e0                	jmp    *%rax
+    1191:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1198:	c3                   	ret
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11a0:	48 8d 3d 69 2e 00 00 	lea    0x2e69(%rip),%rdi        # 4010 <strlen@plt+0x2fa0>
+    11a7:	48 8d 35 62 2e 00 00 	lea    0x2e62(%rip),%rsi        # 4010 <strlen@plt+0x2fa0>
+    11ae:	48 29 fe             	sub    %rdi,%rsi
+    11b1:	48 89 f0             	mov    %rsi,%rax
+    11b4:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    11b8:	48 c1 f8 03          	sar    $0x3,%rax
+    11bc:	48 01 c6             	add    %rax,%rsi
+    11bf:	48 d1 fe             	sar    $1,%rsi
+    11c2:	74 14                	je     11d8 <strlen@plt+0x168>
+    11c4:	48 8b 05 25 2e 00 00 	mov    0x2e25(%rip),%rax        # 3ff0 <strlen@plt+0x2f80>
+    11cb:	48 85 c0             	test   %rax,%rax
+    11ce:	74 08                	je     11d8 <strlen@plt+0x168>
+    11d0:	ff e0                	jmp    *%rax
+    11d2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    11d8:	c3                   	ret
+    11d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11e0:	f3 0f 1e fa          	endbr64
+    11e4:	80 3d 25 2e 00 00 00 	cmpb   $0x0,0x2e25(%rip)        # 4010 <strlen@plt+0x2fa0>
+    11eb:	75 2b                	jne    1218 <strlen@plt+0x1a8>
+    11ed:	55                   	push   %rbp
+    11ee:	48 83 3d 02 2e 00 00 	cmpq   $0x0,0x2e02(%rip)        # 3ff8 <strlen@plt+0x2f88>
+    11f5:	00 
+    11f6:	48 89 e5             	mov    %rsp,%rbp
+    11f9:	74 0c                	je     1207 <strlen@plt+0x197>
+    11fb:	48 8b 3d 06 2e 00 00 	mov    0x2e06(%rip),%rdi        # 4008 <strlen@plt+0x2f98>
+    1202:	e8 49 fe ff ff       	call   1050 <__cxa_finalize@plt>
+    1207:	e8 64 ff ff ff       	call   1170 <strlen@plt+0x100>
+    120c:	c6 05 fd 2d 00 00 01 	movb   $0x1,0x2dfd(%rip)        # 4010 <strlen@plt+0x2fa0>
+    1213:	5d                   	pop    %rbp
+    1214:	c3                   	ret
+    1215:	0f 1f 00             	nopl   (%rax)
+    1218:	c3                   	ret
+    1219:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1220:	f3 0f 1e fa          	endbr64
+    1224:	e9 77 ff ff ff       	jmp    11a0 <strlen@plt+0x130>
+
